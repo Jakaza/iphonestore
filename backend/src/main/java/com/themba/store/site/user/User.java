@@ -1,5 +1,6 @@
 package com.themba.store.site.user;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
