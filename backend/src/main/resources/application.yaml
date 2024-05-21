@@ -2,15 +2,18 @@ spring:
   application:
     name: backend
   datasource:
-    url: jdbc:h2:mem:sagan;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: password
-    platform: h2
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    url: jdbc:postgresql://ep-red-base-a5shenla.us-east-2.aws.neon.tech/storedb?user=storedb_owner&password=mqgV5M0TDaCr&sslmode=require
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
 
 security:
   basic:
@@ -27,7 +30,7 @@ security:
 application:
   security:
     jwt:
-      secret-key: jakaza
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days

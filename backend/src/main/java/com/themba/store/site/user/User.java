@@ -42,7 +42,6 @@ public class User implements UserDetails {
     @JoinColumn(name = "merchant_id")
     private Merchant merchant;
 
-    @Column(nullable = false)
     private String provider;
 
     @Column(name = "google_id")
@@ -54,6 +53,11 @@ public class User implements UserDetails {
     private String avatar;
 
     private LocalDateTime updated;
+
+    @PrePersist
+    protected void onCreate() {
+        created = LocalDateTime.now();
+    }
 
     @Column(nullable = false)
     private LocalDateTime created;
